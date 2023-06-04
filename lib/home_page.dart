@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final double abc = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: color.AppColor.homePageBackground,
       body: Container(
@@ -92,10 +93,15 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   width: 5,
                 ),
-                Icon(
-                  Icons.arrow_forward,
-                  size: 20,
-                  color: color.AppColor.homePageIcons,
+                InkWell(
+                  onTap: () {
+                    Get.to(() => VideoInfo());
+                  },
+                  child: Icon(
+                    Icons.arrow_forward,
+                    size: 20,
+                    color: color.AppColor.homePageIcons,
+                  ),
                 ),
               ],
             ),
@@ -228,7 +234,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     width: MediaQuery.of(context).size.width,
                     height: 200,
-                    margin: const EdgeInsets.only(right: 200, bottom: 30),
+                    margin: EdgeInsets.only(right: (abc * 0.5), bottom: 30),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       image: DecorationImage(
@@ -239,7 +245,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     width: double.maxFinite,
                     height: 100,
-                    margin: const EdgeInsets.only(left: 150, top: 50),
+                    margin: EdgeInsets.only(left: (abc * 0.4), top: 50),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -293,7 +299,8 @@ class _HomePageState extends State<HomePage> {
                       return Row(
                         children: [
                           Container(
-                            margin: EdgeInsets.only(left: 30, bottom: 20,top: 15),
+                            margin:
+                                EdgeInsets.only(left: 30, bottom: 20, top: 15),
                             width: (MediaQuery.of(context).size.width - 90) / 2,
                             height: 170,
                             padding: EdgeInsets.only(bottom: 5),
@@ -326,7 +333,8 @@ class _HomePageState extends State<HomePage> {
                             )),
                           ),
                           Container(
-                            margin: EdgeInsets.only(left: 30, bottom: 20,top: 15),
+                            margin:
+                                EdgeInsets.only(left: 30, bottom: 20, top: 15),
                             width: (MediaQuery.of(context).size.width - 90) / 2,
                             height: 170,
                             padding: EdgeInsets.only(bottom: 5),
